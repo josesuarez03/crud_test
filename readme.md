@@ -1,1 +1,2 @@
 - https://earthly.dev/blog/python-makefile/
+- https://stackoverflow.com/questions/40720369/how-to-use-wait-in-makefile-when-i-use-it-through-nmake-in-windows
