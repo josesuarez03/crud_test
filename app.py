@@ -39,7 +39,18 @@ with app.app_context():
 # Ruta para crear una nueva cabra (CREATE)
 @app.route('/cabra', methods=['POST'])
 def crear_cabra():
-    data = request.json
+    data = request.get_json()
+
+    # Validaciones de entrada
+    if not data.get('nombre'):
+        return jsonify({'error': 'El campo "nombre" es obligatorio'}), 400
+    if data.get('edad', 0) < 0:
+        return jsonify({'error': 'La edad no puede ser negativa'}), 400
+    if data.get('peso', 0) < 0:
+        return jsonify({'error': 'El peso no puede ser negativo'}), 400
+    if data.get('altura', 0) < 0:
+        return jsonify({'error': 'La altura no puede ser negativa'}), 400
+
     nueva_cabra = Cabra(
         nombre=data['nombre'],
         edad=data['edad'],
@@ -68,8 +79,16 @@ def obtener_cabra(id):
 # Ruta para actualizar una cabra (UPDATE)
 @app.route('/cabra/<int:id>', methods=['PUT'])
 def actualizar_cabra(id):
-    data = request.json
+    data = request.get_json()
     cabra = Cabra.query.get_or_404(id)
+
+    # Validaciones de entrada
+    if 'edad' in data and data['edad'] < 0:
+        return jsonify({'error': 'La edad no puede ser negativa'}), 400
+    if 'peso' in data and data['peso'] < 0:
+        return jsonify({'error': 'El peso no puede ser negativo'}), 400
+    if 'altura' in data and data['altura'] < 0:
+        return jsonify({'error': 'La altura no puede ser negativa'}), 400
 
     cabra.nombre = data.get('nombre', cabra.nombre)
     cabra.edad = data.get('edad', cabra.edad)
