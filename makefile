@@ -2,6 +2,7 @@ VENV = venv
 PYTHON = $(VENV)/bin/python3
 PIP = $(VENV)/bin/pip
 TEST_DIR = test
+URL = http://127.0.0.1:5000
 
 # Crear entorno virtual y activar
 $(VENV)/bin/activate: requirements.txt
@@ -15,21 +16,31 @@ run-app: $(VENV)/bin/activate
 	@echo "Ejecutando la aplicación..."
 	$(PYTHON) app.py
 
-# Ejecutar todas las pruebas
+# Ejecutar todas las pruebas con separación de tiempo
 test: $(VENV)/bin/activate
 	@echo "Ejecutando pruebas unitarias..."
-	$(PYTHON) $(TEST_DIR)/testUnitarias.py
+	$(PYTHON) -m unittest discover -s $(TEST_DIR) -p "testUnitarias.py"
+	@echo "Esperando 5 segundos antes de la siguiente prueba..."
+	sleep 5
 	@echo "Ejecutando pruebas funcionales..."
-	$(PYTHON) $(TEST_DIR)/testFuncional.py
+	$(PYTHON) -m unittest discover -s $(TEST_DIR) -p "testFuncional.py"
+	@echo "Esperando 5 segundos antes de la siguiente prueba..."
+	sleep 5
 	@echo "Ejecutando pruebas de integración..."
-	$(PYTHON) $(TEST_DIR)/testIntegracion.py
-	@echo "Ejecutando pruebas de rendimiento..."
-	$(PYTHON) $(TEST_DIR)/testRendimiento.py
+	$(PYTHON) -m unittest discover -s $(TEST_DIR) -p "testIntegracion.py"
+	@echo "Esperando 5 segundos antes de la siguiente prueba..."
+	sleep 5
 	@echo "Ejecutando pruebas de seguridad..."
-	$(PYTHON) $(TEST_DIR)/testSeguridad.py
+	$(PYTHON) -m unittest discover -s $(TEST_DIR) -p "testSeguridad.py"
+	@echo "Esperando 5 segundos antes de la siguiente prueba..."
+	sleep 5
+	@echo "Ejecutando pruebas de rendimiento..."
+	locust -f $(TEST_DIR)/testRendimiento.py --host=$(URL)
+
 
 # Limpiar archivos generados
 clean:
 	@echo "Limpiando archivos generados..."
 	rm -rf __pycache__
 	rm -rf $(VENV)
+
