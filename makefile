@@ -3,6 +3,7 @@ PYTHON = $(VENV)/bin/python3
 PIP = $(VENV)/bin/pip
 TEST_DIR = test
 URL = http://127.0.0.1:5000
+CURDIR = $(shell pwd)
 
 # Crear entorno virtual y activar
 $(VENV)/bin/activate: requirements.txt
@@ -37,10 +38,25 @@ test: $(VENV)/bin/activate
 	@echo "Ejecutando pruebas de rendimiento..."
 	locust -f $(TEST_DIR)/testRendimiento.py --host=$(URL)
 
+pylint: $(VENV)/bin/activate
+	@echo "Ejecutando pylint..."
+	$(PYTHON) pylint *.py
+	sleep 2
+
+coverage: $(VENV)/bin/activate
+	@echo "Generando informe de cobertura..."
+	$(PYTHON) -m coverage run --source=. -m unittest discover -s $(TEST_DIR)
+	sleep 2
+	$(PYTHON) -m coverage report -m
+	sleep 2
+
+# Trivy con ruta relativa
+trivy: 
+	@echo "Ejecutando análisis de seguridad con Trivy..."
+	trivy fs $(CURDIR)
 
 # Limpiar archivos generados
 clean:
 	@echo "Limpiando archivos generados..."
 	rm -rf __pycache__
 	rm -rf $(VENV)
-
