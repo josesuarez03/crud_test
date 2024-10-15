@@ -40,7 +40,7 @@ test: $(VENV)/bin/activate
 
 pylint: $(VENV)/bin/activate
 	@echo "Ejecutando pylint..."
-	$(PYTHON) pylint *.py
+	$(VENV)/bin/pylint $(CURDIR)/**/*.py
 	sleep 2
 
 coverage: $(VENV)/bin/activate
