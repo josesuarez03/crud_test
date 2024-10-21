@@ -55,6 +55,19 @@ trivy:
 	@echo "Ejecutando análisis de seguridad con Trivy..."
 	trivy fs $(CURDIR)
 
+# Cifrar el archivo secrets.yaml
+encrypt:
+	@echo "Cifrando el archivo secrets.yaml..."
+	@read -p "Introduce tu PGP Key ID (últimos 8 caracteres o ID completo): " PGP_KEY_ID; \
+	sops --encrypt --pgp $$PGP_KEY_ID secrets.yaml > secrets.enc.yaml; \
+	echo "Archivo cifrado como secrets.enc.yaml"
+
+# Descifrar el archivo secrets.enc.yaml
+decrypt:
+	@echo "Descifrando el archivo secrets.enc.yaml..."
+	sops --decrypt secrets.enc.yaml > secrets.yaml
+	@echo "Archivo descifrado como secrets.yaml"
+
 # Limpiar archivos generados
 clean:
 	@echo "Limpiando archivos generados..."
