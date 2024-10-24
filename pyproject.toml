@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "crud_test"
+name = "project_crud"
 version = "0.1.0"
 description = "Proyecto CRUD de prueba."
 authors = ["Jose Suarez"]
