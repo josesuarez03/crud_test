@@ -46,8 +46,8 @@ typing_extensions = "4.12.2"
 unittest2 = "1.1.0"
 urllib3 = "2.2.3"
 Werkzeug = "3.0.4"
-zope.event = "5.0"
-zope.interface = "7.0.3"
+zope-event = "5.0"
+zope-interface = "7.0.3"
 
 [tool.poetry.dev-dependencies]
 coverage = "7.6.3"
