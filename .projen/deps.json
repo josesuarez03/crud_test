@@ -1,9 +1,177 @@
 {
   "dependencies": [
     {
+      "name": "coverage==7.6.3",
+      "type": "devenv"
+    },
+    {
       "name": "projen",
       "version": "0.88.6",
       "type": "devenv"
+    },
+    {
+      "name": "setuptools==75.1.0",
+      "type": "devenv"
+    },
+    {
+      "name": "astroid==3.3.5",
+      "type": "runtime"
+    },
+    {
+      "name": "blinker==1.8.2",
+      "type": "runtime"
+    },
+    {
+      "name": "Brotli==1.1.0",
+      "type": "runtime"
+    },
+    {
+      "name": "certifi==2024.8.30",
+      "type": "runtime"
+    },
+    {
+      "name": "charset-normalizer==3.4.0",
+      "type": "runtime"
+    },
+    {
+      "name": "click==8.1.7",
+      "type": "runtime"
+    },
+    {
+      "name": "ConfigArgParse==1.7",
+      "type": "runtime"
+    },
+    {
+      "name": "dill==0.3.9",
+      "type": "runtime"
+    },
+    {
+      "name": "Flask-Cors==5.0.0",
+      "type": "runtime"
+    },
+    {
+      "name": "Flask-Login==0.6.3",
+      "type": "runtime"
+    },
+    {
+      "name": "Flask-SQLAlchemy==3.1.1",
+      "type": "runtime"
+    },
+    {
+      "name": "Flask==3.0.3",
+      "type": "runtime"
+    },
+    {
+      "name": "gevent==24.2.1",
+      "type": "runtime"
+    },
+    {
+      "name": "geventhttpclient==2.3.1",
+      "type": "runtime"
+    },
+    {
+      "name": "greenlet==3.1.1",
+      "type": "runtime"
+    },
+    {
+      "name": "idna==3.10",
+      "type": "runtime"
+    },
+    {
+      "name": "isort==5.13.2",
+      "type": "runtime"
+    },
+    {
+      "name": "itsdangerous==2.2.0",
+      "type": "runtime"
+    },
+    {
+      "name": "Jinja2==3.1.4",
+      "type": "runtime"
+    },
+    {
+      "name": "linecache2==1.0.0",
+      "type": "runtime"
+    },
+    {
+      "name": "locust==2.31.8",
+      "type": "runtime"
+    },
+    {
+      "name": "MarkupSafe==2.1.5",
+      "type": "runtime"
+    },
+    {
+      "name": "mccabe==0.7.0",
+      "type": "runtime"
+    },
+    {
+      "name": "msgpack==1.1.0",
+      "type": "runtime"
+    },
+    {
+      "name": "platformdirs==4.3.6",
+      "type": "runtime"
+    },
+    {
+      "name": "psutil==6.0.0",
+      "type": "runtime"
+    },
+    {
+      "name": "pylint==3.3.1",
+      "type": "runtime"
+    },
+    {
+      "name": "python-dotenv==1.0.1",
+      "type": "runtime"
+    },
+    {
+      "name": "pyzmq==26.2.0",
+      "type": "runtime"
+    },
+    {
+      "name": "requests==2.32.3",
+      "type": "runtime"
+    },
+    {
+      "name": "six==1.16.0",
+      "type": "runtime"
+    },
+    {
+      "name": "SQLAlchemy==2.0.35",
+      "type": "runtime"
+    },
+    {
+      "name": "tomlkit==0.13.2",
+      "type": "runtime"
+    },
+    {
+      "name": "traceback2==1.4.0",
+      "type": "runtime"
+    },
+    {
+      "name": "typing_extensions==4.12.2",
+      "type": "runtime"
+    },
+    {
+      "name": "unittest2==1.1.0",
+      "type": "runtime"
+    },
+    {
+      "name": "urllib3==2.2.3",
+      "type": "runtime"
+    },
+    {
+      "name": "Werkzeug==3.0.4",
+      "type": "runtime"
+    },
+    {
+      "name": "zope.event==5.0",
+      "type": "runtime"
+    },
+    {
+      "name": "zope.interface==7.0.3",
+      "type": "runtime"
     },
     {
       "name": "pytest",
